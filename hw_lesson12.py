@@ -13,7 +13,24 @@ from typing import Callable
 from datetime import datetime
 
 
+# def decorate_add(func: Callable) -> Callable:
+#
+#     @wraps(func)
+#     def inner(*args, **kwargs) -> tuple[tuple, dict]:
+#         if not args and not kwargs:
+#             print(f'Функция add вызвана в {datetime.now()} без параметров')
+#         elif args and not kwargs:
+#             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args}')
+#         elif not args and kwargs:
+#             print(f'Функция add вызвана в {datetime.now()} c именованными параметрами {kwargs}')
+#         elif args and kwargs:
+#             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args} и с именнованными парметрами {kwargs}')
+#         return args, kwargs
+#     return inner
+
+
 class decorate_add:
+
     def __init__(self, func: Callable) -> Callable:
         self.func = func
 
@@ -29,20 +46,6 @@ class decorate_add:
             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args} и с именнованными парметрами {kwargs}')
         return args, kwargs
 
-# def decorate_add(func: Callable) -> Callable:
-#
-#     @wraps(func)
-#     def inner(*args, **kwargs) -> tuple[tuple, dict]:
-#         if not args and not kwargs:
-#             print(f'Функция add вызвана в {datetime.now()} без параметров')
-#         elif args and not kwargs:
-#             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args}')
-#         elif not args and kwargs:
-#             print(f'Функция add вызвана в {datetime.now()} c именованными параметрами {kwargs}')
-#         elif args and kwargs:
-#             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args} и с именнованными парметрами {kwargs}')
-#         return args, kwargs
-#     return inner
 
 
 @decorate_add
