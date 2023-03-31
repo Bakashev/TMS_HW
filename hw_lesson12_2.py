@@ -15,30 +15,29 @@ class NotFoundError(Exception):
 
 answers = ['Камень', 'Ножницы', 'Бумага']
 while True:
-    answer = input('Enter once answer (Камень или Ножницы или Бумага) ')
+    answer = input('Enter once answer (Камень или Ножницы или Бумага) ').title()
     try:
-        if answer.title() not in answers:
+        if answer not in answers:
             raise NotFoundError
     except NotFoundError:
         print('Вы ввели не допустимый ответ попробуйте еще раз')
         continue
     answer_bot = random.choice(answers)
-    if answer.title() == answer_bot:
+    if answer == answer_bot:
         print(f'Бот выбрал {answer_bot} и вы выбрали {answer}, ничья!')
-    elif (answer.title() == 'Бумага' and answer_bot == 'Ножницы') or (answer.title() == 'Ножницы' and answer_bot == 'Камень')\
-            or (answer.title() == 'Камень' and answer_bot == 'Бумага'):
+    elif (answer == 'Бумага' and answer_bot == 'Ножницы') or (answer == 'Ножницы' and answer_bot == 'Камень')\
+            or (answer == 'Камень' and answer_bot == 'Бумага'):
         print((f'Бот выбрал {answer_bot}, вы проиграли!'))
     else:
         print((f'Бот выбрал {answer_bot}, вы победили!'))
     print('Хотите сыграть еще раз?')
-    res =input('y/n:')
+    res =input('y/n:').lower()
     try:
-        if res != 'y' or res !='n':
+        if res not in ['y','n']:
             raise NotFoundError
     except NotFoundError:
-        print('Вы ввели не допустимое значение попробуйте еще раз')
-        print('Хотите сыграть еще раз?')
-        res = input('y/n:')
+        print('Вы ввели не допустимое значение программа завершена')
+        break
     if res == 'n':
         print('Спасибо за игру. Удачного дня.')
         break
