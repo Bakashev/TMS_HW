@@ -44,7 +44,7 @@ class decorate_add:
             print(f'Функция add вызвана в {datetime.now()} c именованными параметрами {kwargs}')
         elif args and kwargs:
             print(f'Функция add вызвана в {datetime.now()} c позиционными параметрами {args} и с именнованными парметрами {kwargs}')
-        return args, kwargs
+        return self.func(*args, **kwargs)
 
 
 
