@@ -27,7 +27,7 @@ class IterableObject:
 
 first = IterableObject(19, 30)
 print(f'стоп число {first.stop_number}')
-for i in iter(first):
+for i in first:
     #item = iter(first)
     print(i)
 
@@ -43,7 +43,7 @@ def generator_object(start_range: int, stop_range: int, stop_number:int = None):
 
 
 second = generator_object(23, 100, 24)
-for i in iter(second):
+for i in second:
     print(i)
 
 
